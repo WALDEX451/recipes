@@ -180,7 +180,20 @@
                 <p class="dialog-eyebrow">Recipe details</p>
                 <h2 id="dialog-recipe-title"></h2>
                 <p id="dialog-recipe-description"></p>
-                <h3>Ingredients (serves 2)</h3>
+                <div class="servings-control">
+                    <label for="servings-count">How many people are eating?</label>
+                    <select id="servings-count">
+                        <option value="1">1 person</option>
+                        <option value="2" selected>2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5 people</option>
+                        <option value="6">6 people</option>
+                        <option value="7">7 people</option>
+                        <option value="8">8 people</option>
+                    </select>
+                </div>
+                <h3 id="dialog-ingredients-heading">Ingredients (for 2 people)</h3>
                 <ul id="dialog-recipe-ingredients"></ul>
                 <h3>Method</h3>
                 <ol id="dialog-recipe-method"></ol>
@@ -197,8 +210,11 @@
         const dialogImage = document.querySelector("#dialog-recipe-image");
         const dialogTitle = document.querySelector("#dialog-recipe-title");
         const dialogDescription = document.querySelector("#dialog-recipe-description");
+        const servingsSelect = document.querySelector("#servings-count");
+        const ingredientsHeading = document.querySelector("#dialog-ingredients-heading");
         const dialogIngredients = document.querySelector("#dialog-recipe-ingredients");
         const dialogMethod = document.querySelector("#dialog-recipe-method");
+        let currentIngredients = [];
         const recipeDetails = {
             "Chicken tray bake": {
                 ingredients: ["2 chicken thighs", "300 g potatoes, cut into chunks", "1 bell pepper, sliced", "1 tbsp olive oil", "1 tsp dried herbs", "Salt and pepper"],
@@ -225,7 +241,7 @@
                 method: ["Heat the oven to 190°C (170°C fan).", "Brown the beef, then mix with the rice, tomatoes, and oregano.", "Fill the pepper halves, cover with foil, and bake for 25 minutes. Uncover, add cheese, and bake for 10 minutes."]
             },
             "Grilled steak": {
-                ingredients: ["2 steaks (about 150 g each)", "300 g potatoes, cut into wedges", "1 tbsp olive oil", "1 tsp dried rosemary", "A handful of salad leaves", "Salt and pepper"],
+                ingredients: ["2 steaks (about 150 g each)", "300 g potatoes, cut into wedges", "1 tbsp olive oil", "1 tsp dried rosemary", "1 handful of salad leaves", "Salt and pepper"],
                 method: ["Heat the oven to 220°C (200°C fan). Toss the wedges with oil, rosemary, salt, and pepper; roast for 30–35 minutes.", "Bring the steaks to room temperature and season well.", "Sear in a hot pan for 2–4 minutes per side, to your liking. Rest for 5 minutes and serve with wedges and salad."]
             },
             "Meatballs in tomato sauce": {
@@ -234,7 +250,7 @@
             },
             "Classic beef burgers": {
                 ingredients: ["250 g minced beef", "2 burger buns", "2 potatoes, cut into fries", "2 lettuce leaves", "1 tomato, sliced", "Salt, pepper, and burger sauce"],
-                method: ["Heat the oven to 220°C (200°C fan). Season the fries and bake for 25–30 minutes, turning once.", "Shape the beef into two patties, season, then pan-fry for 4–5 minutes per side until cooked through.", "Toast the buns and assemble with lettuce, tomato, patties, and sauce. Serve with fries."]
+                method: ["Heat the oven to 220°C (200°C fan). Season the fries and bake for 25–30 minutes, turning once.", "Shape the beef into patties, season, then pan-fry for 4–5 minutes per side until cooked through.", "Toast the buns and assemble with lettuce, tomato, patties, and sauce. Serve with fries."]
             },
             "Lemon salmon": {
                 ingredients: ["2 salmon fillets", "1 lemon, half sliced and half juiced", "150 g green beans", "1 tbsp olive oil", "1 tsp dried dill", "Salt and pepper"],
@@ -254,7 +270,7 @@
             },
             "Tuna salad bowls": {
                 ingredients: ["1 can tuna, drained", "120 g cooked rice", "½ cucumber, diced", "1 tomato, diced", "2 handfuls salad leaves", "1 tbsp lemon juice and 1 tbsp olive oil"],
-                method: ["Divide the cooked rice and salad leaves between two bowls.", "Top with tuna, cucumber, and tomato.", "Whisk the lemon juice with olive oil, season, and drizzle over the bowls."]
+                method: ["Divide the cooked rice and salad leaves between bowls.", "Top with tuna, cucumber, and tomato.", "Whisk the lemon juice with olive oil, season, and drizzle over the bowls."]
             },
             "Coconut fish curry": {
                 ingredients: ["250 g white fish, cut into chunks", "200 ml coconut milk", "200 g chopped tomatoes", "1 tbsp mild curry paste", "1 small onion, diced", "120 g rice"],
@@ -285,7 +301,7 @@
                 method: ["Soften the onion and mushrooms in oil in a deep pan.", "Stir in the rice. Add the hot stock a ladle at a time, stirring until absorbed before adding more.", "Continue for 18–20 minutes until creamy and the rice is tender. Stir in Parmesan and season."]
             },
             "Spinach and feta pie": {
-                ingredients: ["1 sheet ready-rolled puff pastry", "150 g spinach", "100 g feta, crumbled", "1 egg, beaten", "A pinch of nutmeg", "Black pepper"],
+                ingredients: ["1 sheet ready-rolled puff pastry", "150 g spinach", "100 g feta, crumbled", "1 egg, beaten", "1 pinch of nutmeg", "Black pepper"],
                 method: ["Heat the oven to 200°C (180°C fan). Wilt the spinach in a pan, cool slightly, and squeeze out excess liquid.", "Mix the spinach with feta, nutmeg, and pepper. Spoon onto one half of the pastry and fold over; seal the edges.", "Brush with beaten egg, make a small slit on top, and bake for 25–30 minutes until golden."]
             },
             "Vegetable noodle stir-fry": {
@@ -293,7 +309,7 @@
                 method: ["Cook the noodles according to the packet, then drain.", "Stir-fry the carrot, pepper, and sugar snap peas in a hot pan with a little oil for 4–5 minutes.", "Add the noodles, soy sauce, and ginger. Toss together for 2 minutes and serve."]
             },
             "Tomato mozzarella pasta": {
-                ingredients: ["200 g pasta", "200 g cherry tomatoes, halved", "125 g mozzarella, torn", "1 tbsp olive oil", "A handful of fresh basil", "Salt and pepper"],
+                ingredients: ["200 g pasta", "200 g cherry tomatoes, halved", "125 g mozzarella, torn", "1 tbsp olive oil", "1 handful of fresh basil", "Salt and pepper"],
                 method: ["Cook the pasta in salted water according to the packet; reserve a little pasta water.", "Warm the olive oil in a pan and cook the tomatoes for 5–7 minutes until soft.", "Toss with drained pasta and a splash of pasta water. Remove from the heat, add mozzarella and basil, and season."]
             },
             "Garden vegetable pizza": {
@@ -309,6 +325,116 @@
                 method: ["Heat the oven to 210°C (190°C fan).", "Spread passata on the flatbreads. Top with pepper, onion, cheese, and herbs.", "Bake on a tray for 10–12 minutes until the edges are crisp and the cheese has melted."]
             }
         };
+
+        function formatQuantity(quantity) {
+            const whole = Math.floor(quantity);
+            const fraction = quantity - whole;
+            const commonFractions = [
+                [0.125, "⅛"],
+                [0.25, "¼"],
+                [1 / 3, "⅓"],
+                [0.5, "½"],
+                [2 / 3, "⅔"],
+                [0.75, "¾"],
+                [0.875, "⅞"]
+            ];
+            const matchingFraction = commonFractions.find(([value]) => Math.abs(fraction - value) < 0.001);
+
+            if (matchingFraction) {
+                return `${whole || ""}${matchingFraction[1]}`;
+            }
+
+            return String(Number(quantity.toFixed(2)));
+        }
+
+        const pluralNouns = {
+            "bell pepper": "bell peppers",
+            potato: "potatoes",
+            tomato: "tomatoes",
+            onion: "onions",
+            carrot: "carrots",
+            lemon: "lemons",
+            lime: "limes",
+            egg: "eggs",
+            steak: "steaks",
+            fillet: "fillets",
+            tortilla: "tortillas",
+            clove: "cloves",
+            breast: "breasts",
+            thigh: "thighs",
+            "chicken thigh": "chicken thighs",
+            cucumber: "cucumbers",
+            sheet: "sheets",
+            can: "cans",
+            courgette: "courgettes",
+            handful: "handfuls",
+            "burger bun": "burger buns",
+            flatbread: "flatbreads",
+            pinch: "pinches"
+        };
+        const singularNouns = Object.fromEntries(
+            Object.entries(pluralNouns).map(([singular, plural]) => [plural, singular])
+        );
+        const countableNouns = [...Object.keys(pluralNouns), ...Object.values(pluralNouns)]
+            .sort((first, second) => second.length - first.length)
+            .map((noun) => noun.replaceAll(" ", "\\s+"))
+            .join("|");
+        const countableNounPattern = new RegExp(
+            `^(\\S+)(\\s+)(?:(large|small|red|ready-made)\\s+)?(${countableNouns})\\b`,
+            "i"
+        );
+
+        function updateRecipeIngredients() {
+            const servings = Number(servingsSelect.value);
+            const scale = servings / 2;
+            const quantityPattern = /(?:\d+(?:\.\d+)?|[½¼¾⅓⅔⅛⅜⅝⅞])/g;
+            const fractionValues = {
+                "½": 0.5,
+                "¼": 0.25,
+                "¾": 0.75,
+                "⅓": 1 / 3,
+                "⅔": 2 / 3,
+                "⅛": 0.125,
+                "⅜": 0.375,
+                "⅝": 0.625,
+                "⅞": 0.875
+            };
+
+            ingredientsHeading.textContent = `Ingredients (for ${servings} ${servings === 1 ? "person" : "people"})`;
+            dialogIngredients.replaceChildren(...currentIngredients.map((ingredient) => {
+                const item = document.createElement("li");
+                let scaledFirstAmount;
+                const scaledIngredient = ingredient.replace(quantityPattern, (quantity, offset, source) => {
+                    if (/^\s*g each\b/i.test(source.slice(offset + quantity.length))) {
+                        return quantity;
+                    }
+
+                    const amount = fractionValues[quantity] ?? Number(quantity);
+                    const scaledAmount = amount * scale;
+                    if (offset === 0) {
+                        scaledFirstAmount = scaledAmount;
+                    }
+
+                    return formatQuantity(scaledAmount);
+                });
+                const countableNoun = scaledIngredient.match(countableNounPattern);
+
+                if (scaledFirstAmount !== undefined && countableNoun) {
+                    const noun = countableNoun[4].toLowerCase();
+                    const adjustedNoun = scaledFirstAmount > 1
+                        ? pluralNouns[noun] ?? noun
+                        : singularNouns[noun] ?? noun;
+                    const adjective = countableNoun[3] ? `${countableNoun[3]} ` : "";
+                    item.textContent = `${countableNoun[1]}${countableNoun[2]}${adjective}${adjustedNoun}${scaledIngredient.slice(countableNoun[0].length)}`;
+                } else {
+                    item.textContent = scaledIngredient;
+                }
+
+                return item;
+            }));
+        }
+
+        servingsSelect.addEventListener("change", updateRecipeIngredients);
 
         recipeCards.forEach((card) => {
             const recipeLink = document.createElement("a");
@@ -326,11 +452,8 @@
                 dialogTitle.textContent = card.querySelector("h3").textContent;
                 dialogDescription.textContent = card.querySelector("p").textContent;
                 const details = recipeDetails[dialogTitle.textContent];
-                dialogIngredients.replaceChildren(...details.ingredients.map((ingredient) => {
-                    const item = document.createElement("li");
-                    item.textContent = ingredient;
-                    return item;
-                }));
+                currentIngredients = details.ingredients;
+                updateRecipeIngredients();
                 dialogMethod.replaceChildren(...details.method.map((step) => {
                     const item = document.createElement("li");
                     item.textContent = step;
