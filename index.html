@@ -7,11 +7,382 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="form">
-        <h2>Contact Form</h2>
-        <form>
-            
-        </form>
-    </div>
+    <main class="form">
+        <h2>What kind of recipes do you want today?</h2>
+        <div class="category-buttons" role="group" aria-label="Recipe categories">
+            <button type="button" aria-controls="meat-recipes" aria-expanded="false" data-category="meat">Meat</button>
+            <button type="button" aria-controls="fish-recipes" aria-expanded="false" data-category="fish">Fish</button>
+            <button type="button" aria-controls="veggie-recipes" aria-expanded="false" data-category="veggie">Veggies</button>
+        </div>
+        <div class="dinner-picker">
+            <button type="button" id="pick-dinner">Pick tonight's dinner</button>
+            <p id="dinner-result" aria-live="polite" hidden></p>
+        </div>
+
+        <section class="recipe-section" id="meat-recipes" aria-labelledby="meat-heading" hidden>
+            <h2 id="meat-heading">Meat recipes</h2>
+            <div class="recipe-grid">
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Grilled chicken with vegetables and lemon" loading="lazy" decoding="async">
+                    <h3>Chicken tray bake</h3>
+                    <p>Roasted chicken with potatoes, peppers, and herbs.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1552332385-f8dd00dc2f85?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Beef tacos with fresh toppings" loading="lazy" decoding="async">
+                    <h3>Beef tacos</h3>
+                    <p>Seasoned beef with fresh salsa and crunchy lettuce.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A hearty meat dish" loading="lazy" decoding="async">
+                    <h3>Sausage tomato pasta</h3>
+                    <p>A comforting pasta with sausage and rich tomato sauce.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Cooked meat with herbs" loading="lazy" decoding="async">
+                    <h3>Honey garlic chicken</h3>
+                    <p>Pan-seared chicken coated in a sweet and savory garlic sauce.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Beef served with vegetables" loading="lazy" decoding="async">
+                    <h3>Beef and vegetable stir-fry</h3>
+                    <p>Tender beef and crisp vegetables in a quick soy-ginger sauce.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A freshly cooked chicken meal" loading="lazy" decoding="async">
+                    <h3>Stuffed bell peppers</h3>
+                    <p>Bell peppers filled with seasoned ground meat and rice.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Grilled steak served for dinner" loading="lazy" decoding="async">
+                    <h3>Grilled steak</h3>
+                    <p>Juicy steak with roasted potatoes and a simple green salad.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Meatballs with tomato sauce" loading="lazy" decoding="async">
+                    <h3>Meatballs in tomato sauce</h3>
+                    <p>Tender meatballs simmered in tomato sauce, served with pasta.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Burger with lettuce and tomato" loading="lazy" decoding="async">
+                    <h3>Classic beef burgers</h3>
+                    <p>Homemade burgers with crisp lettuce, tomato, and oven fries.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="recipe-section" id="fish-recipes" aria-labelledby="fish-heading" hidden>
+            <h2 id="fish-heading">Fish recipes</h2>
+            <div class="recipe-grid">
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Salmon with fresh ingredients" loading="lazy" decoding="async">
+                    <h3>Lemon salmon</h3>
+                    <p>Oven-baked salmon with lemon and green vegetables.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A fish dish with vegetables" loading="lazy" decoding="async">
+                    <h3>Fish tacos</h3>
+                    <p>Golden fish with crunchy cabbage and a creamy sauce.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Seafood served with herbs" loading="lazy" decoding="async">
+                    <h3>Garlic shrimp pasta</h3>
+                    <p>Juicy shrimp tossed with pasta, garlic, and herbs.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Cooked fish with a golden crust" loading="lazy" decoding="async">
+                    <h3>Crispy fish and chips</h3>
+                    <p>Golden baked fish served with oven-roasted potato wedges.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A fresh seafood meal" loading="lazy" decoding="async">
+                    <h3>Tuna salad bowls</h3>
+                    <p>A fresh bowl with tuna, crunchy vegetables, and lemon dressing.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Fish with flavorful sides" loading="lazy" decoding="async">
+                    <h3>Coconut fish curry</h3>
+                    <p>Tender fish simmered in a mild coconut and tomato curry.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1504704911898-68304a7d2807?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Fresh fish with lemon" loading="lazy" decoding="async">
+                    <h3>Fish with lemon rice</h3>
+                    <p>Pan-cooked fish with bright lemon rice and green beans.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A seafood dish ready to serve" loading="lazy" decoding="async">
+                    <h3>Quick seafood rice</h3>
+                    <p>Rice tossed with seafood, peas, and a squeeze of lemon.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Grilled fish served with vegetables" loading="lazy" decoding="async">
+                    <h3>Herb grilled fish</h3>
+                    <p>Grilled fish with herbs, roasted vegetables, and lemon.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="recipe-section" id="veggie-recipes" aria-labelledby="veggie-heading" hidden>
+            <h2 id="veggie-heading">Vegetarian recipes</h2>
+            <div class="recipe-grid">
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A colorful bowl of fresh vegetables" loading="lazy" decoding="async">
+                    <h3>Chickpea curry</h3>
+                    <p>A warming curry with chickpeas, tomatoes, and spices.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A bowl filled with colorful vegetables" loading="lazy" decoding="async">
+                    <h3>Roasted veggie bowls</h3>
+                    <p>Colorful roasted vegetables served with fluffy rice.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A freshly prepared vegetarian meal" loading="lazy" decoding="async">
+                    <h3>Mushroom risotto</h3>
+                    <p>Creamy rice with mushrooms and fresh parsley.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Fresh vegetables ready to eat" loading="lazy" decoding="async">
+                    <h3>Spinach and feta pie</h3>
+                    <p>Flaky pastry filled with spinach, feta, and fresh herbs.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A fresh vegetarian dish" loading="lazy" decoding="async">
+                    <h3>Vegetable noodle stir-fry</h3>
+                    <p>Noodles tossed with colorful vegetables and a savory sauce.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A bowl of a warm vegetarian meal" loading="lazy" decoding="async">
+                    <h3>Tomato mozzarella pasta</h3>
+                    <p>Pasta with roasted tomatoes, melted mozzarella, and basil.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Vegetarian pizza with fresh toppings" loading="lazy" decoding="async">
+                    <h3>Garden vegetable pizza</h3>
+                    <p>Pizza topped with vegetables, tomato sauce, and melted cheese.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Pasta with herbs and vegetables" loading="lazy" decoding="async">
+                    <h3>Pesto veggie pasta</h3>
+                    <p>Pasta with basil pesto, vegetables, and a sprinkle of cheese.</p>
+                </article>
+                <article class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Freshly baked vegetable pizza" loading="lazy" decoding="async">
+                    <h3>Roasted pepper flatbread</h3>
+                    <p>Toasted flatbread with roasted peppers, herbs, and cheese.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <dialog class="recipe-dialog" id="recipe-dialog" aria-labelledby="dialog-recipe-title">
+        <button class="dialog-close" type="button" aria-label="Close recipe">&times;</button>
+        <div class="dialog-content">
+            <img id="dialog-recipe-image" alt="">
+            <div class="dialog-copy">
+                <p class="dialog-eyebrow">Recipe details</p>
+                <h2 id="dialog-recipe-title"></h2>
+                <p id="dialog-recipe-description"></p>
+                <h3>Ingredients (serves 2)</h3>
+                <ul id="dialog-recipe-ingredients"></ul>
+                <h3>Method</h3>
+                <ol id="dialog-recipe-method"></ol>
+            </div>
+        </div>
+    </dialog>
+    <script>
+        const categoryButtons = document.querySelectorAll("[data-category]");
+        const recipeSections = document.querySelectorAll(".recipe-section");
+        const recipeCards = document.querySelectorAll(".recipe-card");
+        const dinnerResult = document.querySelector("#dinner-result");
+        const main = document.querySelector(".form");
+        const recipeDialog = document.querySelector("#recipe-dialog");
+        const dialogImage = document.querySelector("#dialog-recipe-image");
+        const dialogTitle = document.querySelector("#dialog-recipe-title");
+        const dialogDescription = document.querySelector("#dialog-recipe-description");
+        const dialogIngredients = document.querySelector("#dialog-recipe-ingredients");
+        const dialogMethod = document.querySelector("#dialog-recipe-method");
+        const recipeDetails = {
+            "Chicken tray bake": {
+                ingredients: ["2 chicken thighs", "300 g potatoes, cut into chunks", "1 bell pepper, sliced", "1 tbsp olive oil", "1 tsp dried herbs", "Salt and pepper"],
+                method: ["Heat the oven to 200°C (180°C fan).", "Toss the potatoes and pepper with oil, herbs, salt, and pepper in a roasting dish.", "Nestle in the chicken and roast for 35–40 minutes, until cooked through and the potatoes are tender."]
+            },
+            "Beef tacos": {
+                ingredients: ["250 g minced beef", "6 small tortillas", "1 tsp ground cumin", "1 tsp paprika", "1 tomato, diced", "Shredded lettuce and salsa"],
+                method: ["Brown the beef in a pan over medium-high heat.", "Stir in the cumin, paprika, and a splash of water; simmer for 5 minutes.", "Warm the tortillas and fill with beef, tomato, lettuce, and salsa."]
+            },
+            "Sausage tomato pasta": {
+                ingredients: ["200 g pasta", "200 g sausage, casings removed", "1 small onion, diced", "200 g chopped tomatoes", "1 garlic clove, minced", "Salt and pepper"],
+                method: ["Cook the pasta in salted water according to the packet; reserve a cup of pasta water.", "Brown the sausage with the onion, then add the garlic and tomatoes.", "Simmer for 12 minutes, toss with the pasta, and loosen with pasta water if needed."]
+            },
+            "Honey garlic chicken": {
+                ingredients: ["2 chicken breasts", "2 tbsp honey", "2 garlic cloves, minced", "1 tbsp soy sauce", "1 tbsp olive oil", "Black pepper"],
+                method: ["Mix the honey, garlic, soy sauce, and a tablespoon of water.", "Season the chicken and pan-fry in oil for 6–8 minutes per side, until cooked through.", "Pour in the sauce and turn the chicken until glossy and coated."]
+            },
+            "Beef and vegetable stir-fry": {
+                ingredients: ["250 g beef strips", "1 bell pepper, sliced", "1 carrot, thinly sliced", "150 g broccoli florets", "2 tbsp soy sauce", "1 tsp grated ginger"],
+                method: ["Stir the soy sauce and ginger together.", "Sear the beef in a hot pan with a little oil, then set aside.", "Stir-fry the vegetables until just tender, return the beef, add the sauce, and toss for 2 minutes."]
+            },
+            "Stuffed bell peppers": {
+                ingredients: ["2 large bell peppers, halved and deseeded", "200 g minced beef", "100 g cooked rice", "200 g chopped tomatoes", "1 tsp dried oregano", "40 g grated cheese"],
+                method: ["Heat the oven to 190°C (170°C fan).", "Brown the beef, then mix with the rice, tomatoes, and oregano.", "Fill the pepper halves, cover with foil, and bake for 25 minutes. Uncover, add cheese, and bake for 10 minutes."]
+            },
+            "Grilled steak": {
+                ingredients: ["2 steaks (about 150 g each)", "300 g potatoes, cut into wedges", "1 tbsp olive oil", "1 tsp dried rosemary", "A handful of salad leaves", "Salt and pepper"],
+                method: ["Heat the oven to 220°C (200°C fan). Toss the wedges with oil, rosemary, salt, and pepper; roast for 30–35 minutes.", "Bring the steaks to room temperature and season well.", "Sear in a hot pan for 2–4 minutes per side, to your liking. Rest for 5 minutes and serve with wedges and salad."]
+            },
+            "Meatballs in tomato sauce": {
+                ingredients: ["250 g minced beef", "1 egg", "30 g breadcrumbs", "200 g chopped tomatoes", "1 garlic clove, minced", "150 g pasta"],
+                method: ["Mix the beef, egg, breadcrumbs, salt, and pepper; shape into small meatballs.", "Brown the meatballs in a pan, then add the garlic and tomatoes.", "Simmer gently for 15 minutes while cooking the pasta. Serve the meatballs and sauce over the drained pasta."]
+            },
+            "Classic beef burgers": {
+                ingredients: ["250 g minced beef", "2 burger buns", "2 potatoes, cut into fries", "2 lettuce leaves", "1 tomato, sliced", "Salt, pepper, and burger sauce"],
+                method: ["Heat the oven to 220°C (200°C fan). Season the fries and bake for 25–30 minutes, turning once.", "Shape the beef into two patties, season, then pan-fry for 4–5 minutes per side until cooked through.", "Toast the buns and assemble with lettuce, tomato, patties, and sauce. Serve with fries."]
+            },
+            "Lemon salmon": {
+                ingredients: ["2 salmon fillets", "1 lemon, half sliced and half juiced", "150 g green beans", "1 tbsp olive oil", "1 tsp dried dill", "Salt and pepper"],
+                method: ["Heat the oven to 200°C (180°C fan). Put the salmon in a baking dish and season.", "Add lemon slices, drizzle with oil and lemon juice, and bake for 12–15 minutes until the fish flakes easily.", "Steam or boil the green beans until tender and serve with the salmon."]
+            },
+            "Fish tacos": {
+                ingredients: ["250 g white fish fillets", "6 small tortillas", "150 g shredded cabbage", "1 lime", "3 tbsp plain yogurt", "1 tsp paprika"],
+                method: ["Mix the yogurt with half the lime juice and a pinch of salt.", "Season the fish with paprika and salt, then pan-fry for 3–4 minutes per side until it flakes.", "Warm the tortillas and fill with fish and cabbage. Finish with lime yogurt and remaining lime."]
+            },
+            "Garlic shrimp pasta": {
+                ingredients: ["200 g pasta", "200 g peeled shrimp", "2 garlic cloves, minced", "1 tbsp olive oil", "1 tbsp lemon juice", "2 tbsp chopped parsley"],
+                method: ["Cook the pasta in salted water according to the packet; reserve a little pasta water.", "Warm the oil in a pan and cook the garlic for 30 seconds. Add the shrimp and cook until pink.", "Toss with drained pasta, lemon juice, parsley, and a splash of pasta water."]
+            },
+            "Crispy fish and chips": {
+                ingredients: ["2 white fish fillets", "300 g potatoes, cut into wedges", "3 tbsp flour", "1 egg, beaten", "50 g breadcrumbs", "1 tbsp oil, salt, and pepper"],
+                method: ["Heat the oven to 220°C (200°C fan). Toss the wedges with half the oil and bake for 30 minutes.", "Coat each fish fillet in flour, dip in egg, then press into the breadcrumbs.", "Place on a tray, drizzle with remaining oil, and bake for 12–15 minutes until golden and cooked through."]
+            },
+            "Tuna salad bowls": {
+                ingredients: ["1 can tuna, drained", "120 g cooked rice", "½ cucumber, diced", "1 tomato, diced", "2 handfuls salad leaves", "1 tbsp lemon juice and 1 tbsp olive oil"],
+                method: ["Divide the cooked rice and salad leaves between two bowls.", "Top with tuna, cucumber, and tomato.", "Whisk the lemon juice with olive oil, season, and drizzle over the bowls."]
+            },
+            "Coconut fish curry": {
+                ingredients: ["250 g white fish, cut into chunks", "200 ml coconut milk", "200 g chopped tomatoes", "1 tbsp mild curry paste", "1 small onion, diced", "120 g rice"],
+                method: ["Cook the rice according to the packet.", "Soften the onion in a pan, stir in the curry paste, then add coconut milk and tomatoes. Simmer for 8 minutes.", "Add the fish and simmer gently for 6–8 minutes, until cooked through. Serve with rice."]
+            },
+            "Fish with lemon rice": {
+                ingredients: ["2 white fish fillets", "120 g rice", "1 lemon, zested and juiced", "150 g green beans", "1 tbsp olive oil", "Salt and pepper"],
+                method: ["Cook the rice according to the packet. Stir through the lemon zest and half the juice.", "Season the fish and pan-fry in oil for 3–4 minutes per side, until it flakes easily.", "Boil or steam the green beans until tender. Serve with the fish and lemon rice."]
+            },
+            "Quick seafood rice": {
+                ingredients: ["150 g mixed seafood, thawed if frozen", "120 g rice", "75 g peas", "1 small onion, diced", "300 ml vegetable stock", "1 lemon wedge"],
+                method: ["Soften the onion in a pan with a little oil.", "Stir in the rice and stock. Cover and simmer gently for about 12 minutes.", "Add the peas and seafood and cook for 5–7 minutes, until the rice is tender and seafood is piping hot. Serve with lemon."]
+            },
+            "Herb grilled fish": {
+                ingredients: ["2 white fish fillets", "1 tbsp olive oil", "1 tsp dried mixed herbs", "1 courgette, sliced", "1 bell pepper, sliced", "½ lemon"],
+                method: ["Heat the grill to medium-high. Toss the vegetables with half the oil and grill for 8–10 minutes, turning once.", "Brush the fish with remaining oil, sprinkle with herbs, and season.", "Grill the fish for 4–6 minutes per side, until it flakes easily. Serve with vegetables and lemon."]
+            },
+            "Chickpea curry": {
+                ingredients: ["1 can chickpeas, drained", "200 g chopped tomatoes", "200 ml coconut milk", "1 small onion, diced", "1 tbsp curry powder", "120 g rice"],
+                method: ["Cook the rice according to the packet.", "Soften the onion in a pan, stir in the curry powder, then add tomatoes, coconut milk, and chickpeas.", "Simmer for 15 minutes, stirring occasionally. Serve with rice."]
+            },
+            "Roasted veggie bowls": {
+                ingredients: ["120 g rice", "1 courgette, chopped", "1 bell pepper, chopped", "1 red onion, cut into wedges", "1 tbsp olive oil", "2 tbsp plain yogurt"],
+                method: ["Heat the oven to 210°C (190°C fan). Toss the vegetables with oil, salt, and pepper.", "Roast for 25–30 minutes, turning once, until golden and tender.", "Cook the rice according to the packet and serve topped with the roasted vegetables and yogurt."]
+            },
+            "Mushroom risotto": {
+                ingredients: ["150 g risotto rice", "150 g mushrooms, sliced", "600 ml hot vegetable stock", "1 small onion, diced", "20 g grated Parmesan", "1 tbsp olive oil"],
+                method: ["Soften the onion and mushrooms in oil in a deep pan.", "Stir in the rice. Add the hot stock a ladle at a time, stirring until absorbed before adding more.", "Continue for 18–20 minutes until creamy and the rice is tender. Stir in Parmesan and season."]
+            },
+            "Spinach and feta pie": {
+                ingredients: ["1 sheet ready-rolled puff pastry", "150 g spinach", "100 g feta, crumbled", "1 egg, beaten", "A pinch of nutmeg", "Black pepper"],
+                method: ["Heat the oven to 200°C (180°C fan). Wilt the spinach in a pan, cool slightly, and squeeze out excess liquid.", "Mix the spinach with feta, nutmeg, and pepper. Spoon onto one half of the pastry and fold over; seal the edges.", "Brush with beaten egg, make a small slit on top, and bake for 25–30 minutes until golden."]
+            },
+            "Vegetable noodle stir-fry": {
+                ingredients: ["150 g noodles", "1 carrot, cut into strips", "1 bell pepper, sliced", "100 g sugar snap peas", "2 tbsp soy sauce", "1 tsp grated ginger"],
+                method: ["Cook the noodles according to the packet, then drain.", "Stir-fry the carrot, pepper, and sugar snap peas in a hot pan with a little oil for 4–5 minutes.", "Add the noodles, soy sauce, and ginger. Toss together for 2 minutes and serve."]
+            },
+            "Tomato mozzarella pasta": {
+                ingredients: ["200 g pasta", "200 g cherry tomatoes, halved", "125 g mozzarella, torn", "1 tbsp olive oil", "A handful of fresh basil", "Salt and pepper"],
+                method: ["Cook the pasta in salted water according to the packet; reserve a little pasta water.", "Warm the olive oil in a pan and cook the tomatoes for 5–7 minutes until soft.", "Toss with drained pasta and a splash of pasta water. Remove from the heat, add mozzarella and basil, and season."]
+            },
+            "Garden vegetable pizza": {
+                ingredients: ["1 ready-made pizza base", "3 tbsp tomato passata", "½ bell pepper, sliced", "½ courgette, thinly sliced", "100 g grated mozzarella", "1 tsp dried oregano"],
+                method: ["Heat the oven to 220°C (200°C fan).", "Spread passata over the pizza base, then add the vegetables, mozzarella, and oregano.", "Bake for 12–15 minutes until the base is crisp and the cheese is bubbling."]
+            },
+            "Pesto veggie pasta": {
+                ingredients: ["200 g pasta", "2 tbsp basil pesto", "1 small courgette, diced", "100 g cherry tomatoes, halved", "20 g grated cheese", "Salt and pepper"],
+                method: ["Cook the pasta in salted water according to the packet; reserve a little pasta water.", "Pan-fry the courgette in a little oil for 5 minutes, then add the tomatoes and cook until softened.", "Toss the drained pasta with vegetables, pesto, and a splash of pasta water. Top with grated cheese."]
+            },
+            "Roasted pepper flatbread": {
+                ingredients: ["2 flatbreads", "1 bell pepper, sliced", "½ red onion, sliced", "80 g grated cheese", "2 tbsp tomato passata", "1 tsp dried herbs"],
+                method: ["Heat the oven to 210°C (190°C fan).", "Spread passata on the flatbreads. Top with pepper, onion, cheese, and herbs.", "Bake on a tray for 10–12 minutes until the edges are crisp and the cheese has melted."]
+            }
+        };
+
+        recipeCards.forEach((card) => {
+            const recipeLink = document.createElement("a");
+            recipeLink.className = "recipe-link";
+            recipeLink.href = "#recipe-dialog";
+            recipeLink.setAttribute("aria-label", `View recipe: ${card.querySelector("h3").textContent}`);
+            card.append(recipeLink);
+
+            recipeLink.addEventListener("click", (event) => {
+                event.preventDefault();
+                const image = card.querySelector("img");
+
+                dialogImage.src = image.src;
+                dialogImage.alt = image.alt;
+                dialogTitle.textContent = card.querySelector("h3").textContent;
+                dialogDescription.textContent = card.querySelector("p").textContent;
+                const details = recipeDetails[dialogTitle.textContent];
+                dialogIngredients.replaceChildren(...details.ingredients.map((ingredient) => {
+                    const item = document.createElement("li");
+                    item.textContent = ingredient;
+                    return item;
+                }));
+                dialogMethod.replaceChildren(...details.method.map((step) => {
+                    const item = document.createElement("li");
+                    item.textContent = step;
+                    return item;
+                }));
+                recipeDialog.showModal();
+            });
+        });
+
+        document.querySelector(".dialog-close").addEventListener("click", () => {
+            recipeDialog.close();
+        });
+
+        recipeDialog.addEventListener("click", (event) => {
+            if (event.target === recipeDialog) {
+                recipeDialog.close();
+            }
+        });
+
+        function showRecipeSection(selectedSection) {
+            recipeSections.forEach((section) => {
+                section.hidden = section !== selectedSection;
+            });
+            categoryButtons.forEach((categoryButton) => {
+                categoryButton.setAttribute(
+                    "aria-expanded",
+                    String(categoryButton.getAttribute("aria-controls") === selectedSection.id)
+                );
+            });
+            document.body.classList.add("showing-recipes");
+            main.classList.add("showing-recipes");
+        }
+
+        categoryButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                dinnerResult.hidden = true;
+                recipeCards.forEach((card) => card.classList.remove("tonight-pick"));
+                showRecipeSection(document.querySelector(`#${button.getAttribute("aria-controls")}`));
+            });
+        });
+
+        document.querySelector("#pick-dinner").addEventListener("click", () => {
+            const chosenCard = recipeCards[Math.floor(Math.random() * recipeCards.length)];
+            const chosenSection = chosenCard.closest(".recipe-section");
+
+            showRecipeSection(chosenSection);
+            recipeCards.forEach((card) => card.classList.remove("tonight-pick"));
+            chosenCard.classList.add("tonight-pick");
+            dinnerResult.textContent = `Tonight's pick: ${chosenCard.querySelector("h3").textContent}`;
+            dinnerResult.hidden = false;
+            chosenCard.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+    </script>
 </body>
 </html>
